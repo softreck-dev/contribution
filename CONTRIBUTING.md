@@ -1,0 +1,186 @@
+# Contributing
+
+We can use help in a bunch of areas and any help is appreciated. Our [GitHub issues](https://github.com/jloads/jloads/issues) serve as a place for any discussion, 
+whether it's bug reports, questions, project direction etc. 
+As the project grows this policy may change.
+
+Our [Discord server](https://discord.gg/softreck) is open for help and more adhoc discussion. 
+All activity on the Discord is still moderated and will be strictly enforced under the project's [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+## Getting Started
+
+Getting started with developing jLoads takes only three commands. 
+You will only need Node v12 or above.
+
+```bash
+git clone https://github.com/jloads/jloads
+cd tools
+./jloads --help
+```
+
+## Developing on Windows
+
+You need to use the backslash (`\`) to run any `jloads` command on Windows instead of the slash (`/`); Windows uses backslashes for file paths.
+
+For example, to run help:
+
+```bash
+.\jloads --help
+```
+or you can directly use `jloads` without any path referencing like below:
+
+```bash
+jloads --help
+```
+
+No dependency installation step is required as we check in our `node_modules` folder that contains only a copy of TypeScript and some definitions.
+
+### User files
+
+If files specific to your local development environment should be ignored, please add these files to a global git ignore file rather than to a git ignore file within jLoads.
+
+You can find more information on this process [here](https://help.github.com/en/github/using-git/ignoring-files#configuring-ignored-files-for-all-repositories-on-your-computer).
+
+## Website
+
+The [jLoads website](https://jloads/) is built with [Eleventy](https://www.11ty.dev/). 
+To start a development server you can run the following commands:
+
+```bash
+cd website
+npm install
+npm start
+```
+
+## Checks
+
+When working on jLoads you will want to run the tests and linter to validate your changes. You can do both of these with a single command:
+
+```bash
+./jloads ci
+```
+
+This is the main command we run when you submit a PR, so running it locally and making sure it passes will make it easier to review and merge your changes.
+
+To automatically update test snapshots, apply formatting and autofixes, add the `--fix` flag.
+
+```bash
+./jloads ci --fix
+```
+
+You can alternatively run more specific commands if you need to, but they shouldn't be necessary.
+
+### Linting
+
+To run just the linter use:
+
+```bash
+./jloads check
+```
+
+And to automatically apply formatting and autofixes:
+
+```bash
+./jloads check --apply
+```
+
+### Testing
+
+If you would like to run only the test runner:
+
+```bash
+./jloads test
+```
+
+To run specific files:
+
+```bash
+./jloads test path/to/files
+```
+
+And to update snapshots:
+
+```bash
+./jloads test --update-snapshots
+```
+
+### Generated files
+
+If you are adding a new lint rule, or modifying some core code, you might need to regenerate some files. We have generated files to avoid having to write a lot of boilerplate and automate common tasks.
+
+```bash
+./jloads run scripts/generate-all-files
+```
+
+## Commit messages
+
+Internally, the jLoads team adheres as closely as possible to the [conventional commit specification](https://www.conventionalcommits.org/en/v1.0.0-beta.2/).
+Following this convention encourages commit best-practices and facilitates commit-powered features like change log generation.
+
+
+The following commit prefixes are supported:
+- `feat:`, a new feature
+- `fix:`, a bugfix
+- `docs:`, a documentation update
+- `test`, a test update
+- `chore:`, project housekeeping
+- `perf:`, project performance
+- `refactor:`, refactor of the code without change in functionality
+
+ Below are examples of well-formatted commits:
+
+```
+feat(compiler): implement parsing for new type of files
+fix: fix nasty unhandled error
+docs: fix link to website page
+test(lint): add more cases to handle invalid rules
+```
+
+### Commit verification
+
+Commits will be verified as part of CI **only on the main branch**. 
+This means that CI will **not** verify commits in pull requests, since these often contain many work-in-progress commits that may not be well-formed, 
+and because the `main` branch uses squash-based merging.
+
+### Creating pull requests
+
+When creating a new pull request, it's preferable to use a conventional commit-formatted title, as this title will be used as the default commit message on the squashed commit after merging.
+## Scripts
+
+Here are some other scripts that you might find useful.
+
+### `lint-create-rule`
+
+This is used to generate new lint rules and boilerplate.
+
+```bash
+./jloads run scripts/lint-create-rule [category]/[ruleName]
+```
+
+The `category` is one of the lint category folders defined in [`internal/compiler/lint/rules`](https://github.com/jloads/jloads/tree/main/internal/compiler/lint/rules). Some of these represent specific languages, or general themes.
+
+For example, to create a rule in the `js` category called `useCamelCase` run:
+
+```bash
+./jloads run scripts/lint-create-rule js/useCamelCase
+```
+
+The created files will be listed in the console output. See those files for inline comments on what to insert. Use other lint rules as a reference.
+
+### `ast-create-node`
+
+This is used to generate new ast nodes and boilerplate.
+
+```bash
+./jloads run scripts/ast-create-node [language]/[category]/[nodeType]
+```
+
+The `language` is one of the language folders defined in [`https://github.com/jloads/jloads/tree/main/internal/ast/`]
+
+The `category` is one of the category folders inside the `language` folders.
+
+```bash
+./jloads run scripts/ast-create-node js/typescript/JSArrayType
+```
+
+The created files will be listed in the console output.
