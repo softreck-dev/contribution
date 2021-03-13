@@ -1,0 +1,123 @@
+<h1>Governance</h1>
+<p>This document outlines the governance model for jLoads. This includes the contributor model, code review, merging, and the consequences and process for Code of Conduct violations.</p>
+<h2>Member Roles</h2>
+<p>All members must follow the <a href="CODE_OF_CONDUCT.md">Code of Conduct</a>. Consequences for member violations are detailed in <a href="#moderation">Moderation</a>.</p>
+<h3>Core Contributor</h3>
+<p>Core Contributors are those with a history of consistent contributions, including but not limited to pull requests, project management, or support. These privileges include:</p>
+<ul>
+<li>Push access to the <a href="https://github.com/jloads">jLoads GitHub org</a>, this includes all repos</li>
+<li>Contributor status on the <a href="https://discord.gg/jloads">jLoads Discord server</a></li>
+<li>Ability to <a href="#voting">vote</a> on project decisions</li>
+</ul>
+<p>There are no expectations around activity once someone becomes a core contributor. Inactive contributors may have voting rights removed however will always retain their status. Inactivity requirements will be specified in a later governance change.</p>
+<h4>Induction</h4>
+<p>Core contributors may either be nominated by another core contributor or can be self nominated.
+This can be done via message in the <a href="https://discord.com/channels/"><code>#contributors</code> Discord channel</a> or by privately messaging a steward.</p>
+<p>New core contributors will be decided based on a <a href="#voting">vote</a> conducted by privately messaging a steward.</p>
+<p>In the event of a rejection the nominated person will be privately given the requirements they have not met. Details of the discussion such as the names of those who objected will not be disclosed.</p>
+<h3>Steward</h3>
+<p>Stewards have additional privileges over core contributors.
+Stewards control and maintain sensitive project assets, and act as tiebreakers in the event of disagreements.
+These additional privileges include:</p>
+<ul>
+<li>Access to the <a href="https://twitter.com/jloads">@jloads Twitter account</a></li>
+<li>Administration privileges on the <a href="https://github.com/jloads">jLoads GitHub org</a></li>
+<li>Administration privileges on the <a href="https://discord.gg/jloads">jLoads Discord server</a></li>
+<li>Publish access to the <a href="https://www.npmjs.com/package/jloads"><code>jloads</code> npm package</a></li>
+<li>Domain registrar and DNS access to <code>jloads</code> and all other domains</li>
+<li>Administration access to the <code>jloads</code> Netlify account</li>
+<li>Ability to initiate a <a href="#voting">vote</a></li>
+<li>Ability to veto <a href="#voting">votes</a> and resolve voting deadlocks</li>
+<li>Define project direction and planning</li>
+<li>Ability to decide on moderation decisions</li>
+<li>Access to the <code>*@jloads</code> email address</li>
+</ul>
+<h4>Induction</h4>
+<p>New stewards will be added based on a unanimous vote by the existing stewards. In the event that someone is unreachable then the decision will be deferred. Discussion and approval will be done in private. Stewards cannot be self-nominated. Inducted stewards must have already be a core contributor.</p>
+<p>A <a href="#voting">vote</a> will be conducted with core contributors to gauge general sentiment, however final decision will be reserved to the existing stewards.</p>
+<h3>Owner</h3>
+<p>Certain parts of the codebase can be owned by one or more people. This process is informal and inclusion could be a result of substantial contribution or delegation by other members. It's the responsibility of a core contributor to identify the relevant owners and ensure there's an understanding when it comes to code review.</p>
+<h2>Current Members</h2>
+<p>Members listed in alphabetical order.</p>
+<h3>Stewards</h3>
+<ul>
+<li><a href="https://github.com/tom-sapletta-com">Tom Sapletta @tom-sapletta-com</a></li>
+</ul>
+<h3>Core Contributors</h3>
+<ul>
+<li>your name</li>
+</ul>
+<h2>Project direction and planning</h2>
+<p>Project direction and planning is a shared responsibility amongst members. Stewards are responsible for dictating high level goals and scope of the project that should be adhered to.</p>
+<h2>Voting</h2>
+<p>Certain project decisions require a vote. These include:</p>
+<ul>
+<li>Governance changes: simple majority (over 50%) conducted via GitHub PR approval.</li>
+<li>Core contributor membership: overwhelming majority (over 70%) conducted by privately messaging a steward. Funneling both assenting and dissenting votes directly through stewards allows for anonymity when discussing the merits of a potential contributor.</li>
+</ul>
+<p>A steward may initiate a vote for any unlisted project decision. Core contributors can request a vote by contacting a steward.</p>
+<h3>Rules</h3>
+<ul>
+<li>Members may abstain from a vote.</li>
+<li>Members who do not vote within 7 days will automatically abstain.</li>
+<li>Stewards may reduce the 7 day automatic abstain for urgent decisions.</li>
+<li>Stewards reserve the right to veto approval with a publicly disclosed reason.</li>
+</ul>
+<h2>Code review</h2>
+<p>We have a fairly liberal approach to code review and merging. We value quick iteration and low development friction. This comes with great responsibility.
+Reverting code is easy so landing code should be just as easy. Because of this, jLoads will have discrete releases rather than rolling releases that are automatically published.</p>
+<ul>
+<li>If you are an owner of a particular area you are free to merge it without any review despite PR size.</li>
+<li>If after a PR is merged and there are comments or suggestions after the fact, allow yourself time to address them in a follow up PR.
+If you don't think you will be able to respond in a reasonable timeframe then create an issue to track.</li>
+<li>Ensure that PR summary is detailed listing steps you took to verify, the rationale, and relevant issues and people involved in any prior discussion.</li>
+<li>Ensure that PRs contain adequate tests and code comments for a future contributor to derive intent and modify your code safely.</li>
+<li>You are welcome to use the <code>jloads</code> repo for your WIP branches. However you should prefix branches with your username. ie. <code>git branch tom-sapletta-com/feature</code>.
+Branches not involved in an active PR will be regularly pruned.</li>
+<li>If you are adding a new feature then ensure that it has been discussed or approved on GitHub or Discord.</li>
+<li>If necessary, identify potential owners for PR review and approval.</li>
+<li>All code needs to go through Pull Requests (PR) and must pass status checks before being merged. If a PR is merged that breaks <code>main</code> due to the branch not being up to date,
+then it should either be reverted or a quick fix merged as a separate PR.</li>
+<li>If a PR is against code that you have previously committed and is either small changes, bug fixes, or refactors, then you're free to merge it without any review.
+However if you don't feel confident in your changes then you can wait for approval from another core contributor.</li>
+</ul>
+<h2>Moderation</h2>
+<p>Outlined below is the process for Code of Conduct violation reviews.</p>
+<h3>Reporting</h3>
+<p>Anyone may report a violation. Violations can be reported in the following ways:</p>
+<ul>
+<li>In private, via <a href="mailto:conduct@jloads">conduct@jloads</a> which is listed in the <a href="./CODE_OF_CONDUCT.md">Code of Conduct</a>. This email address is monitored by all stewards.</li>
+<li>In private, via email to one or more stewards.</li>
+<li>In private, via direct message to a project steward on Discord</li>
+<li>In public, via a GitHub comment (mentioning <code>@jloads/stewards</code>).</li>
+<li>In public, via the project Discord server.</li>
+</ul>
+<h3>Who gets involved?</h3>
+<p>Each report will be assigned reviewers. These will initially be all project <a href="#stewards">stewards</a>.</p>
+<p>In the event of any conflict of interest - ie. stewards who are personally connected to a situation, they must immediately recuse themselves.</p>
+<p>At request of the reporter and if deemed appropriate by the reviewers, another neutral third-party may be involved in the review and decision process.</p>
+<h3>Review</h3>
+<p>If a report doesn’t contain enough information, the reviewers will strive to obtain all relevant data before acting.</p>
+<p>The reviewers will then review the incident and determine, to the best of their ability:</p>
+<ul>
+<li>What happened.</li>
+<li>Whether this event constitutes a Code of Conduct violation.</li>
+<li>Who, if anyone, was involved in the violation.</li>
+<li>Whether this is an ongoing situation.</li>
+</ul>
+<p>The reviewers should aim to have a resolution agreed very rapidly; if not agreed within a week, they will inform the parties of the planned date.</p>
+<h3>Resolution</h3>
+<p>Responses will be determined by the reviewers on the basis of the information gathered and of the potential consequences. It may include:</p>
+<ul>
+<li>taking no further action</li>
+<li>issuing a reprimand (private or public)</li>
+<li>asking for an apology (private or public)</li>
+<li>permanent ban from the GitHub org and Discord server</li>
+<li>revoked contributor status</li>
+</ul>
+<h2>OpenCollective fund allocation</h2>
+<ul>
+<li>Funds will be allocated for project-specific services such as domain registration and website hosting.</li>
+<li>Other usage of funds has yet to be decided.</li>
+<li>Expenses will be approved by project stewards.</li>
+</ul>

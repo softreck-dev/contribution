@@ -1,0 +1,23 @@
+{
+  "name": "contribution",
+  "version": "1.0.0",
+  "description": "First go please to the Internal Developer Platform [idp.softreck.dev](http://idp.softreck.dev)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/softreck/contribution.git"
+  },
+  "keywords": [],
+  "author": "Tom Sapletta <t@sapletta.com> (https://tom.sapletta.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/softreck/contribution/issues"
+  },
+  "homepage": "https://github.com/softreck/contribution#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.1"
+  }
+}
